@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import { useSpeechSynthesis } from 'react-speech-kit';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [val, setVal]=useState('');
+  const {speak}=useSpeechSynthesis();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="container"style={{display:'flex',flexDirection:'column',alignItems:'center',backgroundColor:'yellow'}}>
+    <h2 >Text To Speech Converter</h2><br/>
+    <textarea id="text" value={val} onChange={(e)=>setVal(e.target.value)} cols="100" rows="10"></textarea>
+    <button className='btn btn-primary my-3'onClick={()=>speak({text:val})}>Convert to Speech</button>
     </div>
+    
+    </>
   );
 }
 
