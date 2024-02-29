@@ -12,7 +12,7 @@ function App() {
     <textarea id="text" value={val} onChange={(e)=>setVal(e.target.value)} cols="100" rows="10"></textarea>
     <div style={{display:'flex',flexDirection:'row'}}>
      <button className='btn btn-primary my-3'onClick={()=>speak({text:val})}>Convert to Speech</button>
-     <button className="btn btn-primary my-3 mx-3" onClick={(e)=>setVal(e.target.value="")}>Clear Text</button>
+     <button className="btn btn-primary my-3 mx-2" onClick={(e)=>setVal(e.target.value="")}>Clear Text</button>
     </div>
     
     </div>
