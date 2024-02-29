@@ -7,10 +7,14 @@ function App() {
   const {speak}=useSpeechSynthesis();
   return (
     <>
-    <div className="container"style={{display:'flex',flexDirection:'column',alignItems:'center',backgroundColor:'yellow'}}>
-    <h2 >Text To Speech Converter</h2><br/>
+    <div className="container my-4"style={{display:'flex',flexDirection:'column',alignItems:'center',backgroundColor:'yellow'}}>
+    <h2 className='my-3'>Text To Speech Converter</h2><br/>
     <textarea id="text" value={val} onChange={(e)=>setVal(e.target.value)} cols="100" rows="10"></textarea>
-    <button className='btn btn-primary my-3'onClick={()=>speak({text:val})}>Convert to Speech</button>
+    <div style={{display:'flex',flexDirection:'row'}}>
+     <button className='btn btn-primary my-3'onClick={()=>speak({text:val})}>Convert to Speech</button>
+     <button className="btn btn-primary my-3 mx-3" onClick={(e)=>setVal(e.target.value="")}>Clear Text</button>
+    </div>
+    
     </div>
     
     </>
